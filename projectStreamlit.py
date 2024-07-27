@@ -16,11 +16,18 @@ st.sidebar.header('User Input Parameters')
 
 def user_input_features():
     diabetes = st.sidebar.selectbox('Have Diabetes?', options=["Yes", "No"])
-    family_history = st.sidebar.selectbox('Past Family History?', options=["Yes","No"])
-    smoking = st.sidebar.selection('Do you smoke?', options=["Yes","No"])
-    alcohol = st.sidebar.selection('Do you frequently consume alcohol?', options=["Yes","No"])
-    prev_heart_prob = st.sidebar.selection('Do you have previous heart problems?', options=["Yes","No"])
-    medication_use = st.sidebar.selection('Are you on medication?', options=["Yes","No"])
+    family_history = st.sidebar.selectbox('Is there family history of heart attack?', options=["Yes","No"])
+    smoking = st.sidebar.selectbox('Do you smoke?', options=["Yes","No"])
+    alcohol = st.sidebar.selectbox('Do you frequently consume alcohol?', options=["Yes","No"])
+    prev_heart_prob = st.sidebar.selectbox('Do you have previous heart problems?', options=["Yes","No"])
+    medication_use = st.sidebar.selectbox('Are you on medication?', options=["Yes","No"])
+    physical_activity = st.sidebar.selectslider('How many days in a week do u excercise?', options=[0,7,1])
+    sleep = st.sidebar.selectslider('How many hours do you sleep a day?', options=[4,10,1])
+    age_map = st.sidebar.selectbox('Age Group?', options=['Child (0-17y/o)', 'Young Adult(18-34y/o)', 'Adult(35-49y/o)', 'Senior(50-64y/o)', 'Elderly(>65y/o)'])
+    cholesterol_map = st.sidebar.selectbox('Cholesterol Level?', options=['Healthy(0-199)', 'At-Risk(200-238)', 'Dangerous(>239)'])
+    bmi_map = st.sidebar.selectbox('Body Mass Index Level (BMI)?', options=['Underweight(0-18)', 'Normal(19-24)', 'Overweight(25-29)', 'Obese(>30)'])
+    blood_pressure_map = st.sidebar.selectbox('Systolic Blood Pressure Level?', options=['Normal(0-119)', 'Elevated(120-129)', 'High Type 1(130-139)', 'High Type 2(140-179)', 'Hypertension Cisis(>180)'])
+    diet_map=st.sidebar.selectbox('Overall Diet Plan?', options=['Unhealthy','Average','Healthy'])
     data = {'sepal_length': sepal_length,
             'sepal_width': sepal_width,
             'petal_length': petal_length,
