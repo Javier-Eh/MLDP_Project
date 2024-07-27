@@ -22,7 +22,7 @@ def user_input_features():
     medication_use = st.sidebar.selectbox('Are you on medication?', options=["Yes","No"])
     physical_activity = st.sidebar.slider('How many days in a week do u excercise?',0,7,3)
     sleep = st.sidebar.slider('How many hours do you sleep a day?', 4,10,5)
-    age_map = st.sidebar.selectbox('Age Group?', options=['Child (0-17y/o)', 'Young Adult(18-34y/o)', 'Adult(35-49y/o)', 'Senior(50-64y/o)', 'Elderly(>65y/o)'])
+    age_map = st.sidebar.selectbox('Age Group?', options=['Child(0-17y/o)', 'Young Adult(18-34y/o)', 'Adult(35-49y/o)', 'Senior(50-64y/o)', 'Elderly(>65y/o)'])
     cholesterol_map = st.sidebar.selectbox('Cholesterol Level?', options=['Healthy(0-199)', 'At-Risk(200-238)', 'Dangerous(>239)'])
     bmi_map = st.sidebar.selectbox('Body Mass Index Level (BMI)?', options=['Underweight(0-18)', 'Normal(19-24)', 'Overweight(25-29)', 'Obese(>30)'])
     blood_pressure_map = st.sidebar.selectbox('Systolic Blood Pressure Level?', options=['Normal(0-119)', 'Elevated(120-129)', 'High Type 1(130-139)', 'High Type 2(140-179)', 'Hypertension Cisis(>180)'])
@@ -36,8 +36,8 @@ def user_input_features():
             'Physical Activity Days Per Week': physical_activity,
             'Sleep Hours Per Day': sleep,
             'age_mapped': age_map,
-            'bmi_mapped': cholesterol_map,
-            'cholesterol_mapped': bmi_map,
+            'bmi_mapped': bmi_map,
+            'cholesterol_mapped': cholesterol_map,
             'systolic_blood_pressure_mapped': blood_pressure_map,
             'diet_mapped': diet_map,}
     
@@ -72,7 +72,7 @@ def user_input_features():
     else:
         data['Medication Use'] = 0
     
-    age_mapping = {'Child (0-17y/o)': 1, 'Young Adult(18-34y/o)': 2, 'Adult(35-49y/o)': 3, 'Senior(50-64y/o)': 4, 'Elderly(>65y/o)': 5}
+    age_mapping = {'Child(0-17y/o)': 1, 'Young Adult(18-34y/o)': 2, 'Adult(35-49y/o)': 3, 'Senior(50-64y/o)': 4, 'Elderly(>65y/o)': 5}
     cholesterol_mapping = {'Healthy(0-199)': 1, 'At-Risk(200-238)': 3, 'Dangerous(>239)': 4}
     bmi_mapping = {'Underweight(0-18)': 1, 'Normal(19-24)': 2, 'Overweight(25-29)': 3, 'Obese(>30)': 4}
     blood_pressure_mapping = {'Normal(0-119)': 1, 'Elevated(120-129)': 2, 'High Type 1(130-139)': 3, 'High Type 2(140-179)': 4, 'Hypertension Crisis(>180)': 5}
