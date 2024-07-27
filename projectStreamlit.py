@@ -40,6 +40,50 @@ def user_input_features():
             'cholesterol_mapped': bmi_map,
             'systolic_blood_pressure_mapped': blood_pressure_map,
             'diet_mapped': diet_map,}
+    
+    #Converting user input to numerical values
+    if data['Diabetes'] == 'Yes':
+        data['Diabetes'] = 1
+    else:
+        data['Diabetes'] = 0
+
+    if data['Family History'] == 'Yes':
+        data['Family History'] = 1 
+    else:
+       data['Family History'] = 0
+
+    if data['Smoking'] == 'Yes':
+        data['Smoking'] = 1 
+    else:
+        data['Smoking'] = 0
+
+    if data['Alcohol Consumption'] == 'Yes':
+        data['Alcohol Consumption'] = 1 
+    else:
+        data['Alcohol Consumption'] = 0
+
+    if data['Previous Heart Problems'] == 'Yes':
+        data['Previous Heart Problems'] = 1 
+    else: 
+        data['Previous Heart Problems'] = 0
+
+    if data['Medication Use'] == 'Yes':
+        data['Medication Use'] = 1 
+    else:
+        data['Medication Use'] = 0
+    
+    age_mapping = {'Child (0-17y/o)': 1, 'Young Adult(18-34y/o)': 2, 'Adult(35-49y/o)': 3, 'Senior(50-64y/o)': 4, 'Elderly(>65y/o)': 5}
+    cholesterol_mapping = {'Healthy(0-199)': 1, 'At-Risk(200-238)': 3, 'Dangerous(>239)': 4}
+    bmi_mapping = {'Underweight(0-18)': 1, 'Normal(19-24)': 2, 'Overweight(25-29)': 3, 'Obese(>30)': 4}
+    blood_pressure_mapping = {'Normal(0-119)': 1, 'Elevated(120-129)': 2, 'High Type 1(130-139)': 3, 'High Type 2(140-179)': 4, 'Hypertension Crisis(>180)': 5}
+    diet_mapping = {'Unhealthy': 1, 'Average': 2, 'Healthy': 3}
+    
+    data['age_mapped'] = age_mapping[data['age_mapped']]
+    data['cholesterol_mapped'] = cholesterol_mapping[data['cholesterol_mapped']]
+    data['bmi_mapped'] = bmi_mapping[data['bmi_mapped']]
+    data['systolic_blood_pressure_mapped'] = blood_pressure_mapping[data['systolic_blood_pressure_mapped']]
+    data['diet_mapped'] = diet_mapping[data['diet_mapped']]
+
     features = pd.DataFrame(data, index=[0])
     return features
 
@@ -58,9 +102,8 @@ prediction_proba = model.predict_proba(df)
 #st.subheader('Class labels and their corresponding index number')
 #st.write(iris.target_names)
 
-#st.subheader('Prediction')
-#t.write(iris.target_names[prediction])
-#st.write(prediction)
+st.subheader('Prediction')
+st.write(prediction)
 
-#st.subheader('Prediction Probability')
-#st.write(prediction_proba)
+st.subheader('Prediction Probability')
+st.write(prediction_proba)
