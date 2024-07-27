@@ -99,8 +99,9 @@ model=joblib.load('XGB_Classifier.pkl')
 prediction = model.predict(df)
 prediction_proba = model.predict_proba(df)
 
-#st.subheader('Class labels and their corresponding index number')
-#st.write(iris.target_names)
+st.subheader('Class labels and their corresponding index number')
+st.write("0 = No Heart Attack")
+st.write("1 = Heart Attack")
 
 st.subheader('Prediction')
 st.write(prediction)
