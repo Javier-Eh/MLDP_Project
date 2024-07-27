@@ -6,6 +6,7 @@ import numpy as np
 model=joblib.load('XGB_Classifier.pkl')
 heart_attack_label = {0: 'No Risk of Heart Attack', 1: 'At Risk of Heart Attack '}
 
+
 st.write("""
 # Simple Heart Attack Prediction App
 This app predicts if user will have Heart Attack!
@@ -14,16 +15,18 @@ This app predicts if user will have Heart Attack!
 st.sidebar.header('User Input Parameters')
 
 def user_input_features():
-    sepal_length = st.sidebar.selectbox('Do You have Diabetes?', options="yes")
-    sepal_width = st.sidebar.slider('Sepal width', 2.0, 4.4, 3.4)
-    petal_length = st.sidebar.slider('Petal length', 1.0, 6.9, 1.3)
-    petal_width = st.sidebar.slider('Petal width', 0.1, 2.5, 0.2)
+    diabetes = st.sidebar.selectbox('Have Diabetes?', options=["Yes", "No"])
+    family_history = st.sidebar.selectbox('Past Family History?', options=["Yes","No"])
+    smoking = st.sidebar.selection('Do you smoke?', options=["Yes","No"])
+    alcohol = st.sidebar.selection('Do you frequently consume alcohol?', options=["Yes","No"])
+    prev_heart_prob = st.sidebar.selection('Do you have previous heart problems?', options=["Yes","No"])
+    medication_use = st.sidebar.selection('Are you on medication?', options=["Yes","No"])
     data = {'sepal_length': sepal_length,
             'sepal_width': sepal_width,
             'petal_length': petal_length,
             'petal_width': petal_width}
-    #features = pd.DataFrame(data, index=[0])
-    #return features
+    features = pd.DataFrame(data, index=[0])
+    return features
 
 df = user_input_features()
 
